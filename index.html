@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kamelia Amidi — portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background: #0a0e1a;
+  color: #e8eaf2;
+  min-height: 100vh;
+  padding: 2.5rem 2rem;
+}
+
+.resume {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2rem;
+  align-items: start;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #1e2d4a;
+}
+
+.name-block h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 42px;
+  font-weight: 400;
+  letter-spacing: -0.5px;
+  color: #f0f2ff;
+  line-height: 1.1;
+}
+
+.name-block h1 span {
+  color: #4a9eff;
+}
+
+.title-tag {
+  display: inline-block;
+  margin-top: 10px;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #4a9eff;
+  background: rgba(74,158,255,0.1);
+  border: 1px solid rgba(74,158,255,0.3);
+  padding: 4px 12px;
+  border-radius: 2px;
+}
+
+.avatar {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1e3a5f, #0a1a30);
+  border: 2px solid #4a9eff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'DM Serif Display', serif;
+  font-size: 30px;
+  color: #4a9eff;
+  flex-shrink: 0;
+}
+
+.contacts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 1rem;
+}
+
+.contact-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #8fa8c8;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid #1e2d4a;
+  padding: 5px 12px;
+  border-radius: 20px;
+  text-decoration: none;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.contact-pill:hover {
+  border-color: #4a9eff;
+  color: #4a9eff;
+}
+
+.contact-icon {
+  width: 14px;
+  height: 14px;
+  opacity: 0.7;
+  flex-shrink: 0;
+}
+
+.body {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 2rem;
+}
+
+.section {
+  margin-bottom: 1.75rem;
+}
+
+.section-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #4a9eff;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #1e2d4a;
+}
+
+.about-text {
+  font-size: 14px;
+  line-height: 1.85;
+  color: #9aa8be;
+  font-weight: 300;
+}
+
+.project-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid #1e2d4a;
+  border-left: 3px solid #4a9eff;
+  border-radius: 6px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1rem;
+  transition: background 0.2s, border-left-color 0.2s;
+}
+
+.project-card:hover {
+  background: rgba(74,158,255,0.05);
+  border-left-color: #6fb3ff;
+}
+
+.project-title {
+  font-size: 15px;
+  font-weight: 500;
+  color: #e8eaf2;
+  margin-bottom: 10px;
+}
+
+.project-bullets {
+  list-style: none;
+  padding: 0;
+}
+
+.project-bullets li {
+  font-size: 13px;
+  color: #7a8ba5;
+  padding: 3px 0;
+  padding-left: 16px;
+  position: relative;
+  line-height: 1.6;
+}
+
+.project-bullets li::before {
+  content: '›';
+  position: absolute;
+  left: 0;
+  color: #4a9eff;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.skill-tags {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.skill-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: #4a9eff;
+  background: rgba(74,158,255,0.08);
+  border: 1px solid rgba(74,158,255,0.2);
+  padding: 3px 9px;
+  border-radius: 2px;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+}
+
+.edu-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid #1e2d4a;
+  border-radius: 6px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.edu-degree {
+  font-size: 13px;
+  font-weight: 500;
+  color: #e8eaf2;
+  line-height: 1.4;
+  margin-bottom: 4px;
+}
+
+.edu-date {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: #4a9eff;
+  margin-bottom: 6px;
+}
+
+.edu-uni {
+  font-size: 12px;
+  color: #5a6e88;
+  margin-bottom: 6px;
+}
+
+.edu-focus {
+  font-size: 12px;
+  color: #7a8ba5;
+  line-height: 1.5;
+}
+
+.skill-row {
+  margin-bottom: 14px;
+}
+
+.skill-category {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: #4a9eff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+
+.skill-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.skill-chip {
+  font-size: 11px;
+  color: #8fa8c8;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid #1e2d4a;
+  padding: 3px 9px;
+  border-radius: 3px;
+}
+
+@media print {
+  body { padding: 1rem; background: #0a0e1a; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .project-card:hover { background: rgba(255,255,255,0.03); border-left-color: #4a9eff; }
+}
+
+@media (max-width: 680px) {
+  .header { grid-template-columns: 1fr; }
+  .avatar { display: none; }
+  .body { grid-template-columns: 1fr; }
+  .name-block h1 { font-size: 32px; }
+}
+</style>
+</head>
+<body>
+<div class="resume">
+
+  <div class="header">
+    <div class="name-block">
+      <h1>Kamelia <span>Amidi</span></h1>
+      <div class="title-tag">Embedded Systems Student</div>
+      <div class="contacts">
+        <a class="contact-pill" href="tel:+213541058427">
+          <svg class="contact-icon" viewBox="0 0 16 16" fill="none"><path d="M3 2h3l1 3-1.5 1.5c.8 1.5 2 2.7 3.5 3.5L10.5 8.5 13.5 9.5v3A1 1 0 0112.5 13C6.5 12.5 3.5 9.5 3 3.5A1 1 0 013 2z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
+          +213 541 058 427
+        </a>
+        <a class="contact-pill" href="mailto:amidikamilia18@gmail.com">
+          <svg class="contact-icon" viewBox="0 0 16 16" fill="none"><rect x="2" y="4" width="12" height="9" rx="1.5" stroke="currentColor" stroke-width="1.2"/><path d="M2 5.5l6 4 6-4" stroke="currentColor" stroke-width="1.2"/></svg>
+          amidikamilia18@gmail.com
+        </a>
+        <a class="contact-pill" href="https://github.com/amidikamilia" target="_blank">
+          <svg class="contact-icon" viewBox="0 0 16 16" fill="none"><path d="M8 1C4.13 1 1 4.13 1 8c0 3.09 2 5.71 4.79 6.63.35.06.48-.15.48-.34v-1.22c-1.95.42-2.36-.94-2.36-.94-.32-.81-.78-1.03-.78-1.03-.64-.44.05-.43.05-.43.7.05 1.07.72 1.07.72.62 1.07 1.64.76 2.04.58.06-.45.24-.76.44-.93-1.56-.18-3.2-.78-3.2-3.47 0-.77.27-1.4.72-1.89-.07-.18-.31-.9.07-1.87 0 0 .59-.19 1.93.72A6.7 6.7 0 018 5.8c.6.003 1.2.08 1.77.24 1.34-.9 1.93-.72 1.93-.72.38.97.14 1.69.07 1.87.45.49.72 1.12.72 1.89 0 2.7-1.64 3.29-3.21 3.46.25.22.48.65.48 1.3v1.94c0 .19.13.4.49.34C13 13.71 15 11.09 15 8c0-3.87-3.13-7-7-7z" fill="currentColor"/></svg>
+          GitHub
+        </a>
+        <a class="contact-pill" href="https://www.linkedin.com/in/kamelia-amidi-862b9a216" target="_blank">
+          <svg class="contact-icon" viewBox="0 0 16 16" fill="none"><rect x="1.5" y="1.5" width="13" height="13" rx="2.5" stroke="currentColor" stroke-width="1.2"/><circle cx="5.5" cy="5.5" r="1" fill="currentColor"/><path d="M5.5 7.5v4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><path d="M8.5 7.5v1.5c0 1.5.75 2.5 2.5 2.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="8.5" cy="7" r=".5" fill="currentColor"/></svg>
+          LinkedIn
+        </a>
+        <a class="contact-pill" href="#">
+          <svg class="contact-icon" viewBox="0 0 16 16" fill="none"><path d="M8 2a3 3 0 100 6A3 3 0 008 2zm0 7c-3.5 0-6 1.5-6 2.5V13h12v-1.5C14 10.5 11.5 9 8 9z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
+          Algiers, Algeria
+        </a>
+      </div>
+    </div>
+    <div class="avatar">KA</div>
+  </div>
+
+  <div class="body">
+    <div class="main">
+
+      <div class="section">
+        <div class="section-label">About</div>
+        <p class="about-text">Embedded Systems student passionate about building real hardware/software projects using STM32 and Arduino. Hands-on approach to learning, with experience in designing and debugging embedded systems. Currently seeking an internship or training opportunity, open to working on both firmware and hardware while continuously improving skills in a professional environment.</p>
+      </div>
+
+      <div class="section">
+        <div class="section-label">Projects</div>
+
+        <div class="project-card">
+          <div class="project-title">STM32 Vending Machine System</div>
+          <ul class="project-bullets">
+            <li>Designed and implemented a complete vending machine using STM32</li>
+            <li>Developed a state machine for system control logic</li>
+            <li>Controlled DC motors using PWM via TIM1</li>
+            <li>Integrated IR sensors for product detection</li>
+            <li>Implemented EXTI interrupts for button input</li>
+            <li>Built LCD interface using I2C communication</li>
+          </ul>
+          <div class="skill-tags">
+            <span class="skill-tag">STM32</span>
+            <span class="skill-tag">PWM</span>
+            <span class="skill-tag">Timers</span>
+            <span class="skill-tag">Interrupts</span>
+            <span class="skill-tag">GPIO</span>
+            <span class="skill-tag">I2C</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-title">Smart Plant Incubator — Arduino</div>
+          <ul class="project-bullets">
+            <li>Built an automated plant monitoring and control system</li>
+            <li>Measured temperature, humidity, and soil moisture</li>
+            <li>Controlled water pump, fan, heater, and humidifier</li>
+            <li>Implemented environment-based decision logic</li>
+          </ul>
+          <div class="skill-tags">
+            <span class="skill-tag">Arduino</span>
+            <span class="skill-tag">Sensors</span>
+            <span class="skill-tag">Relay Control</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="sidebar">
+
+      <div class="section">
+        <div class="section-label">Education</div>
+
+        <div class="edu-card">
+          <div class="edu-date">Expected 2026</div>
+          <div class="edu-degree">M.Sc. Embedded Systems Engineering</div>
+          <div class="edu-uni">University of Boumerdes — Faculty of Technology</div>
+          <div class="edu-focus">Embedded systems · Microcontrollers · Real-time systems</div>
+        </div>
+
+        <div class="edu-card">
+          <div class="edu-date">2021 — 2024</div>
+          <div class="edu-degree">B.Sc. Electronics</div>
+          <div class="edu-uni">University of Boumerdes — Faculty of Technology</div>
+          <div class="edu-focus">Electronics · Circuits · Signal fundamentals</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label">Skills</div>
+
+        <div class="skill-row">
+          <div class="skill-category">Embedded</div>
+          <div class="skill-items">
+            <span class="skill-chip">STM32</span>
+            <span class="skill-chip">GPIO</span>
+            <span class="skill-chip">PWM</span>
+            <span class="skill-chip">Timers</span>
+            <span class="skill-chip">Interrupts</span>
+            <span class="skill-chip">ADC</span>
+            <span class="skill-chip">Arduino</span>
+            <span class="skill-chip">ESP32</span>
+          </div>
+        </div>
+
+        <div class="skill-row">
+          <div class="skill-category">Programming</div>
+          <div class="skill-items">
+            <span class="skill-chip">C</span>
+            <span class="skill-chip">C++</span>
+          </div>
+        </div>
+
+        <div class="skill-row">
+          <div class="skill-category">Protocols</div>
+          <div class="skill-items">
+            <span class="skill-chip">UART</span>
+            <span class="skill-chip">I2C</span>
+            <span class="skill-chip">SPI</span>
+          </div>
+        </div>
+
+        <div class="skill-row">
+          <div class="skill-category">Hardware</div>
+          <div class="skill-items">
+            <span class="skill-chip">Sensors</span>
+            <span class="skill-chip">Datasheet reading</span>
+            <span class="skill-chip">KiCad</span>
+            <span class="skill-chip">Proteus</span>
+          </div>
+        </div>
+
+        <div class="skill-row">
+          <div class="skill-category">Tools</div>
+          <div class="skill-items">
+            <span class="skill-chip">STM32CubeIDE</span>
+            <span class="skill-chip">Git</span>
+            <span class="skill-chip">GitHub</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
